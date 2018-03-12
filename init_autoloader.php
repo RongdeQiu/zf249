@@ -14,5 +14,3 @@ include 'Zend/Loader/AutoloaderFactory.php';
     )
 ));
 $serviceManager = new \Zend\ServiceManager\ServiceManager();
-
-

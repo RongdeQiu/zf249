@@ -45,7 +45,8 @@ class Demo
         return;
     }
 
-    public function getMessage(){
+    public function getMessage()
+    {
         return $this->message;
     }
 
@@ -55,7 +56,7 @@ class Demo
  * 测试带参数的serviceManager调用
  * 注意setService的name不能重复已经使用过的
  */
-$serviceManager->setService("kp2",new Demo("Message from service manager"));
+$serviceManager->setService("kp2", new Demo("Message from service manager"));
 echo "<br>";
 echo $serviceManager->get("kp2")->getMessage();
-echo "<br>".$serviceManager->get("kp")->url."\t".$serviceManager->get("kp2")->getMessage();
+echo "<br>" . $serviceManager->get("kp")->url . "\t" . $serviceManager->get("kp2")->getMessage();
