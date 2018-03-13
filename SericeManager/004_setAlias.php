@@ -24,7 +24,7 @@ class Web
  * 注册的类也是延迟加载的
  */
 $serviceManager->setFactory('kp', function () {
-    $web = new Web('http://complearn.mooo.com');
+    $web = new Web('http://www.google.com');
     return $web;
 });
 //产生一个Web 的instance
