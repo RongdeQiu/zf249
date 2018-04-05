@@ -14,9 +14,9 @@ use Zend\EventManager\SharedEventManager;
 include "../init_autoloader.php";
 
 $eventManager = new EventManager();
-$eventManager->attach('click',function(){
-    echo 'clicked'."\n";
-},1);
+$eventManager->attach('click', function () {
+    echo 'clicked' . "\n";
+}, 1);
 
 
 // Shared event manager 需要一个ID来创建事件event
@@ -24,9 +24,9 @@ $eventManager->attach('click',function(){
 // 这样方便数据的传递
 // 但是MVC框架内可能会有多个eventManager
 $sharedEventManager = new SharedEventManager();
-$sharedEventManager->attach(__NAMESPACE__,'click',function(){
-   echo 'From shared Event Manager'."\n";
-},99);
+$sharedEventManager->attach(__NAMESPACE__, 'click', function () {
+    echo 'From shared Event Manager' . "\n";
+}, 99);
 
 // Shared event manager 不会直接被eventManager触发
 $eventManager->trigger('click');
@@ -36,3 +36,4 @@ $eventManager->setSharedManager($sharedEventManager);
 $eventManager->setIdentifiers(__NAMESPACE__);
 $eventManager->trigger('click');
 
+var_dump($eventManager->getSharedManager());
