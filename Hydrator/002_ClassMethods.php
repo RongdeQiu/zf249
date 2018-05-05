@@ -71,11 +71,11 @@ print_r($hydrator->extract($studentObj));
 
 
 //Hydrator类提供一些策略可以在hydrate或者extract完成之后做附加处理
-$hydrator->addStrategy('id', new ClosureStrategy(
+$hydrator->addStrategy('name', new ClosureStrategy(
     function ($var) {
-        return $var . "extractFunc";
+        return $var . ".extractFunc";
     }, function ($var) {
-    return $var . "hydrateFunc";
+    return $var . ".hydrateFunc";
 }));
 
 echo "<br>\n";

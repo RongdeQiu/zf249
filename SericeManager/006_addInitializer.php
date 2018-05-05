@@ -57,6 +57,7 @@ $serviceManager->addInitializer('KpServiceManager\ClassInitializer');
 echo "After initializing...." . $serviceManager->get('kp')->url.$serviceManager->get('kp')->debug_message;
 
 
+$serviceManager->get('kp')->url="something else.";
 //产生一个Web 的instance
 echo $serviceManager->get('kp')->url;
 echo "<hr>";
@@ -66,8 +67,8 @@ if ($serviceManager->get('kp') === $serviceManager->get('kp')) {
     echo 'Multiple class instances are generated.<hr>';
 }
 
-$serviceManager->get('kp')->debug_message = "Changing url after class initializer...";
+$serviceManager->get('kp')->url = "Changing url after class initializer...";
 
-echo "<br>Execute the servicemanager second time...". $serviceManager->get('kp')->debug_message;
+echo "<br>Execute the servicemanager second time...". $serviceManager->get('kp')->url;
 
 

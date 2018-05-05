@@ -32,7 +32,7 @@ class KpAbstractFactory implements AbstractFactoryInterface
     //$requestname, 区分大小写
     public function canCreateServiceWithName(ServiceLocatorInterface $serviceLocator, $name, $requestedName)
     {
-        if ($name === 'abc')
+        if ($name === 'web')
             //如果返回true, 那会接着执行createServiceWithName这个方法
             return true;
         else
@@ -46,8 +46,10 @@ class KpAbstractFactory implements AbstractFactoryInterface
     public function createServiceWithName(ServiceLocatorInterface $serviceLocator, $name, $requestedName)
     {
 
-        $obj = new \stdClass();
-        $obj->name = $requestedName;
+        //$obj = new \stdClass();
+        //$obj->name = $requestedName;
+        $obj = new Web();
+
 
         // 一定要返回一个instance
         return $obj;
@@ -56,7 +58,7 @@ class KpAbstractFactory implements AbstractFactoryInterface
 
 //当去请求一个不存在的服务的时候, 会去调用这些注册过的Abstract Factory
 $serviceManager->addAbstractFactory('KpServiceManager\KpAbstractFactory');
-echo $serviceManager->get('Abc')->name;
+echo $serviceManager->get('Web')->url;
 
 
 

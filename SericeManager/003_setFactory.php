@@ -19,10 +19,12 @@ class Web{
  * 如果要加载的类构造函数带有参数, 一般是通过setFactory来注册类
  * 注册的类也是延迟加载的
  */
-$serviceManager->setFactory('kp',function(){
-    $web = new Web('http://www.google.com');
+$param='http://complearn.ddns.net';
+$serviceManager->setFactory('kp',function() use ($param){
+    $web = new Web($param);
     return $web;
 });
+
 //产生一个Web 的instance
 echo $serviceManager->get('kp')->url;
 echo "<hr>";
